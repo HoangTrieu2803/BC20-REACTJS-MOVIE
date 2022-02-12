@@ -11,6 +11,7 @@ class BookingTicket extends Component {
         this.props.fetchListBooking();
     }
     renderSeats = () => {
+        console.log(this.props)
         const { danhSachGhe } = this.props.data;
         const { danhSachGheDangDat } = this.props;
         return danhSachGhe.map((ghe, index) => {
