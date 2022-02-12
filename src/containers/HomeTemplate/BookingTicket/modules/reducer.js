@@ -4,21 +4,22 @@ const initialState = {
     data: null,
     error: null,
 };
-const cinemaSystemReducer = (state = initialState, action) =>{
+
+const listBookingReducer = (state = initialState, action) =>{
     switch(action.type){
-        case ActionType.CINEMA_SYSTEM_REQUEST:{
+        case ActionType.LIST_BOOKING_REQUEST:{
             state.loading = true;
             state.data = null;
             state.error = null;
             return {...state};
         }
-        case ActionType.CINEMA_SYSTEM_SUCCESS:{
+        case ActionType.LIST_BOOKING_SUCCESS:{
             state.loading = false;
             state.data = action.payload;
             state.error = null;
             return {...state};
         }
-        case ActionType.CINEMA_SYSTEM_FAILED:{
+        case ActionType.LIST_BOOKING_FAILED:{
             state.loading = false;
             state.data = null;
             state.error = action.payload;
@@ -28,4 +29,4 @@ const cinemaSystemReducer = (state = initialState, action) =>{
     }
 }
 
-export default cinemaSystemReducer;
+export default listBookingReducer;
