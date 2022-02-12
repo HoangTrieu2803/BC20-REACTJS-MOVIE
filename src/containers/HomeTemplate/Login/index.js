@@ -49,7 +49,7 @@ export default function Login(props) {
                   <label>Password</label>
                   <input
                     onChange={handleOnChange}
-                    type="text"
+                    type="password"
                     className="form-control"
                     name="matKhau"
                   />

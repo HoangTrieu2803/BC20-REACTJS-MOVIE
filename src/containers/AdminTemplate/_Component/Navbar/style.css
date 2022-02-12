@@ -1,0 +1,12 @@
+.myNav{
+    background-color: rgb(11, 56, 87);
+    height: 100vh;
+    font-size: 25px;
+    position: relative;
+}
+.logout{
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    right: 40px;
+}

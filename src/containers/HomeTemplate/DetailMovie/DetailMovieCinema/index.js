@@ -29,7 +29,7 @@ class DetailMovieCinema extends Component {
                 {ten.lichChieuPhim.map((gio, index) => {
                   if (localStorage.User) {
                     return (
-                      <Link to="/" className="btn btn-success m-2">
+                      <Link to={`/booking/${gio.maLichChieu}`} className="btn btn-success m-2">
                         {moment(gio.ngayChieuGioChieu).format("hh:mm A")}
                       </Link>
                     );
