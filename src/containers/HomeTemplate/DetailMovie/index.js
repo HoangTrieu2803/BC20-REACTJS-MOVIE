@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import { actDetailFetch } from './modules/action';
 import {connect} from "react-redux";
+import { Link } from 'react-router-dom';
+import Loading from '../../../components/Loading';
 class DetailMovie extends Component {
-    // componentDidMount(){
-    //     //lay id tu url
-    //     const {id} = this.props.match.params;
-    //     this.props.fetchData(id);
-    // }
+    componentDidMount(){
+        const {id} = this.props.match.params
+        this.props.fetchData(id)
+    }
+    handleBook () {
+        if(localStorage.User){
+            return <Link to="/" className='btn btn-success'>Book</Link>
+        }else{
+            return <Link to="/login" className='btn btn-success'>Book</Link>
+        }
+    }
     renderLichChieu = () =>{
         const {data} = this.props;
-        console.log(data);
+        this.handleBook()
         return data?.lichChieu?.map((item)=>{
             return <tr key={item.maLichChieu}>
                 <td>
@@ -25,17 +33,17 @@ class DetailMovie extends Component {
                 {new Date(item.ngayChieuGioChieu).toLocaleTimeString()}
                 </td>
                 <td>
-                    <button className='btn btn-success'>Book</button>
+                 {this.handleBook()}
                 </td>
             </tr> 
         })
     }
     render() {
         const {data,loading} = this.props
-        if( loading) return <div>Loading...</div>;
+        if( loading) return <div><Loading></Loading></div>;
         return (
-            <div className='container'>
-                <div className='row'>
+            <div className='container mt-5'>
+                <div className='row mb-5'>
                     <div className='col-md-6'>
                         <img height={400} className='img-fluid' src={data && data.hinhAnh} alt='hinh'/>
                     </div>
@@ -63,6 +71,7 @@ class DetailMovie extends Component {
                                     <th>Ten Rap</th>
                                     <th>Ngay Chieu</th>
                                     <th>Gio Chieu</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>

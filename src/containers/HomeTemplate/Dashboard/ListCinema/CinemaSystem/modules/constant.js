@@ -1,0 +1,3 @@
+export const CINEMA_SYSTEM_REQUEST = "@listmovie/CINEMA_SYSTEM_REQUEST";
+export const CINEMA_SYSTEM_SUCCESS = "@listmovie/CINEMA_SYSTEM_SUCCESS";
+export const CINEMA_SYSTEM_FAILED = "@listmovie/CINEMA_SYSTEM_FAILED";

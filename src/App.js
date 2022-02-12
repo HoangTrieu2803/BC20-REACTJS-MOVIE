@@ -1,12 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
-import DetailMovie from './containers/HomeTemplate/DetailMovie';
+import { BrowserRouter, Switch } from "react-router-dom";
+import {renderRouteHome} from "./routes";
+import PageNotFound from './containers/PageNotFound';
 function App() {
   return (
     <div>
-     <DetailMovie></DetailMovie>
+       <BrowserRouter>
+        <Switch>
+          {renderRouteHome()}
+          <PageNotFound></PageNotFound>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
-
 export default App;

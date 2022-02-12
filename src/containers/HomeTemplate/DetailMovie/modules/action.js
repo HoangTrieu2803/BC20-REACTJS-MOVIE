@@ -1,17 +1,17 @@
 import * as ActionType from "./constants";
-import { axios } from "axios";
+import  axios  from "axios";
 export const actDetailFetch = (id) => {
     return (dispatch) => {
         //reques
         dispatch(actDetailRequest());
         // call api
         axios({
-            url: `https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`,
+            url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`,
             method: "GET",
         })
             .then((result) => {
                 //success
-                dispatch(actDetailSuccess(result.data.content));
+                dispatch(actDetailSuccess(result.data));
             })
             .catch((error) => {
                 //error
