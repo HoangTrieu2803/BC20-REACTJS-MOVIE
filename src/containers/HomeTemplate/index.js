@@ -7,8 +7,8 @@ import Navbar from './_Component/Navbar';
 export default function HomeTemplate(){
   return <div>
       <Navbar/>
-      <Dashboard/>
-      {/* <BookingTicket/> */}
+      {/* <Dashboard/> */}
+      <BookingTicket/>
       <Footer/>
       
   </div>;

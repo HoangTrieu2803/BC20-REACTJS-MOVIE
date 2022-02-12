@@ -1,29 +1,26 @@
+import { CinemaInfo } from '../../../../_core/models/CinemeInfo';
 import * as ActionType from './constant';
 const initialState = {
-    loading: false,
-    data: null,
-    error: null,
+    detail: new CinemaInfo(),
+    danhSachGheDangDat: []
 };
 
 const listBookingReducer = (state = initialState, action) =>{
     switch(action.type){
         case ActionType.LIST_BOOKING_REQUEST:{
-            state.loading = true;
-            state.data = null;
-            state.error = null;
+            state.detail = action.detail;
             return {...state};
         }
-        case ActionType.LIST_BOOKING_SUCCESS:{
-            state.loading = false;
-            state.data = action.payload;
-            state.error = null;
-            return {...state};
-        }
-        case ActionType.LIST_BOOKING_FAILED:{
-            state.loading = false;
-            state.data = null;
-            state.error = action.payload;
-            return {...state};    
+        case ActionType.LIST_BOOKING_TICKET:{
+            let danhSachGheCapNhat = [...state.danhSachGheDangDat];
+            let index = danhSachGheCapNhat.findIndex(gheDD => gheDD.maGhe === action.gheDuocChon.maGhe);
+            if(index != -1){
+                danhSachGheCapNhat.splice(index,1);
+            }else{
+                danhSachGheCapNhat.push(action.gheDuocChon);
+            }
+            console.log(action);
+            return {...state, danhSachGheDangDat: danhSachGheCapNhat};
         }
         default:    return {...state};
     }
