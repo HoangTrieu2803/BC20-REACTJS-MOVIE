@@ -1,0 +1,1 @@
+export const SET_CAROUSEL = "@mycarousel/SET_CAROUSEL";

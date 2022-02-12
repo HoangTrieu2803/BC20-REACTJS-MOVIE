@@ -1,4 +1,5 @@
 import React from 'react';
+import BookingTicket from './BookingTicket';
 import Dashboard from './Dashboard';
 import "./style.css";
 import Footer from './_Component/Footer';
@@ -7,6 +8,8 @@ export default function HomeTemplate(){
   return <div>
       <Navbar/>
       <Dashboard/>
+      {/* <BookingTicket/> */}
       <Footer/>
+      
   </div>;
 }
