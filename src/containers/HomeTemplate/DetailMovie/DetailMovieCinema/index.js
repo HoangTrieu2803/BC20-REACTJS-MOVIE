@@ -11,7 +11,7 @@ class DetailMovieCinema extends Component {
   renderLichChieu() {
     const { data } = this.props;
     return data?.heThongRapChieu.map((cinema) => {
-      return cinema.cumRapChieu.map((ten, index) => {
+      return cinema?.cumRapChieu.map((ten, index) => {
         return (
           <div className=" mt-5" style={{ width: "75%" }} key={index}>
             <h4
@@ -49,10 +49,7 @@ class DetailMovieCinema extends Component {
     });
   }
   render() {
-    const { data } = this.props;
-    if (data) {
-      console.log(data.heThongRapChieu[0].cumRapChieu[0].lichChieuPhim[0]);
-    }
+    const { data } = this.props;  
     return (
       <div>
         <div>

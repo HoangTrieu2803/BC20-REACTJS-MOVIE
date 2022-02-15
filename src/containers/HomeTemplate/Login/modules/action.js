@@ -1,21 +1,30 @@
 import * as ActionType from "./constants"
 import axios from "axios"
+import api from "../../../../utils/apiUtils"
 export const actLogin =(user,history) =>{
     return(dispatch) =>{
         dispatch(actLoginRequest());
-        axios({
-            url:"https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
-            method:"POST",
-            data:user,
-        })
+        // axios({
+        //     url:"https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
+        //     method:"POST",
+        //     data:user,
+        // })
+        api.post("QuanLyNguoiDung/DangNhap",user)
         .then((result)=>{
-            if(result.data.maLoaiNguoiDung == "QuanTri"){
+            if(result.data.content.maLoaiNguoiDung == "QuanTri"){
                 return Promise.reject(
+                    {
+                        response: {
+                            data:{
+                                content:"khong co quyen truy cap"
+                            },
+                        }
+                    }
                 );
             }
-            localStorage.setItem("User",JSON.stringify(result.data));
+            localStorage.setItem("User",JSON.stringify(result.data.content));
             history.replace("/")
-            dispatch(actLoginSuccess(result.data))
+            dispatch(actLoginSuccess(result.data.content))
         })
         .catch((error)=>{
             dispatch(actLoginFailed(error))
