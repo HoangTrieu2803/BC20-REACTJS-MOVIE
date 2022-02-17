@@ -1,14 +1,8 @@
 import * as ActionType from "./constants"
-import axios from "axios"
 import api from "../../../../utils/apiUtils"
 export const actLogin =(user,history) =>{
     return(dispatch) =>{
         dispatch(actLoginRequest());
-        // axios({
-        //     url:"https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
-        //     method:"POST",
-        //     data:user,
-        // })
         api.post("QuanLyNguoiDung/DangNhap",user)
         .then((result)=>{
             if(result.data.content.maLoaiNguoiDung == "QuanTri"){

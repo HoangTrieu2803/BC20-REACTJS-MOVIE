@@ -6,6 +6,7 @@ import AddUserPage from "../containers/AdminTemplate/AddUserPage";
 import AdminTemplate from "../containers/AdminTemplate";
 import Movie from "../containers/AdminTemplate/Movie";
 import BookingTicket from "../containers/HomeTemplate/BookingTicket"
+import SignUp from "../containers/HomeTemplate/Signup";
 const routesHome = [
   //home
   {
@@ -25,11 +26,18 @@ const routesHome = [
     path: "/login",
     component: Login,
   },
+  //booking
   {
     exact:false,
     path:"/booking",
     component:BookingTicket,
-  }
+  },
+  //sign up
+  {
+    exact:false,
+    path:"/signup",
+    component:SignUp,
+  },
 ];
 const renderRouteHome = () => {
   return routesHome.map((root, index) => {

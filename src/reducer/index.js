@@ -8,6 +8,7 @@ import loginReducer from "../containers/HomeTemplate/Login/modules/reducer";
 import detailMovieCinemaReducer from "../containers/HomeTemplate/DetailMovie/DetailMovieCinema/modules/reducer";
 import addUserReducer from "../containers/AdminTemplate/AddUserPage/modules/reducer";
 import authPageReducer from "../containers/AdminTemplate/AuthPage/module/reducer";
+import signupReducer from "../containers/HomeTemplate/Signup/modules/reducer";
 const rootReducer = combineReducers ({
     listMovieReducer,
     carouselReducer,
@@ -18,5 +19,6 @@ const rootReducer = combineReducers ({
     detailMovieCinemaReducer,
     addUserReducer,
     authPageReducer,
+    signupReducer,
 })
 export default rootReducer;

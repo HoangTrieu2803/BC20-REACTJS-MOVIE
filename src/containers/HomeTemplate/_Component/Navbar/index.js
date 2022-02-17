@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector  } from 'react-redux';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export default function Navbar() {
     const user = useSelector((state) => state.loginReducer.data)
     const handleLogout = () =>{
@@ -17,6 +18,7 @@ export default function Navbar() {
                 <Link className="navbar-brand col-6" to="/">CyberMovie</Link>
                 <div className="collapse navbar-collapse col-6" >
                     <div className="text-light my-2 my-lg-0">
+                            <AccountCircleIcon className='mr-3'/>
                             {name}
                         <Link to="/" onClick={handleLogout} className='btn btn-danger ml-4'>Log out</Link>
                     </div>
@@ -33,7 +35,7 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse col-6" >
                     <form className="form-inline my-2 my-lg-0">
                         <Link to={"/login"} className="btn btn-outline-success my-2 my-sm-0 mx-1">Log in</Link>
-                        <button className="btn btn-outline-success my-2 my-sm-0 mx-1">Sign up</button>
+                        <Link to={"/signup"} className="btn btn-outline-success my-2 my-sm-0 mx-1">Sign up</Link>
                     </form>                   
                 </div>
             </div>
