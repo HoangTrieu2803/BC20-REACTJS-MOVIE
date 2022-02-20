@@ -36,11 +36,12 @@ export default function Navbar() {
                     <form className="form-inline my-2 my-lg-0">
                         <Link to={"/login"} className="btn btn-outline-success my-2 my-sm-0 mx-1">Log in</Link>
                         <Link to={"/signup"} className="btn btn-outline-success my-2 my-sm-0 mx-1">Sign up</Link>
+                        
                     </form>                   
                 </div>
             </div>
         </nav>
         
-    </div>;
+    </div>
     }
 }
