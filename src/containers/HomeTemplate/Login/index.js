@@ -28,6 +28,9 @@ export default function Login(props) {
       );
     }
   };
+  if(localStorage.getItem("User")){
+    props.history.replace("/")
+  }
   return (
     <div>
       <div>
@@ -65,5 +68,6 @@ export default function Login(props) {
         </div>
       </div>
     </div>
-  );
+  )
+
 }
